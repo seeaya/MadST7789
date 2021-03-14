@@ -1,10 +1,6 @@
 import SwiftIO
 
-#if canImport(MadDisplay)
-
 import struct MadDisplay.ColorSpace
-
-#endif
 
 public final class MadST7789 {
 
@@ -26,10 +22,8 @@ public final class MadST7789 {
     public private(set) var width: Int
     public private(set) var height: Int
     public let bitCount = 16
-
-#if canImport(MadDisplay)
+	
     public var colorSpace = ColorSpace()
-#endif
 
 
     private var xOffset: Int
@@ -52,11 +46,9 @@ public final class MadST7789 {
         self.xOffset = 0
         self.yOffset = 0
 
-#if canImport(MadDisplay)
         colorSpace.depth = 16
         colorSpace.grayscale = false
         colorSpace.reverseBytesInWord = true
-#endif
 
         reset()
 
